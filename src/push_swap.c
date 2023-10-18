@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:39:02 by raalonso          #+#    #+#             */
-/*   Updated: 2023/10/18 08:55:30 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/10/18 20:21:58 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,92 +53,14 @@ int	ft_atoi(const char *str)
 
 ////////// ---------------------------------------------------------- ///////////
 
-int	**ft_sa(int **stack)
-{
-	int	aux;
-	
-	if (stack[0][0] != '\0' && stack[0][1] != '\0')
-	{
-		aux = stack[0][0];
-		stack[0][0] = stack[0][1];
-		stack[0][1] = aux;
-	}
-	return (stack);
-}
-
-int	**ft_sb(int **stack)
-{
-	int	aux;
-	
-	if (stack[1][0] != '\0' && stack[1][1] != '\0')
-	{
-		aux = stack[1][0];
-		stack[1][0] = stack[1][1];
-		stack[1][1] = aux;
-	}
-	return (stack);
-}
-
-int **ft_ss(int **stack)
-{
-	stack = ft_sa(stack);
-	stack = ft_sb(stack);
-	return (stack);
-}
-
-int **ft_ra(int **stack, int num_c)
-{
-	int	i;
-	int	first;
-	int	aux;
-	
-	i = 0;
-	first = stack[0][0];
-	while (i < num_c - 1)
-	{
-		stack[0][i] = stack[0][i + 1];
-		i++;
-	}
-	stack[0][i] = first;
-	return (stack);
-}
-
-int **ft_rb(int **stack, int num_c)
-{
-	int	i;
-	int	first;
-	int	aux;
-	
-	i = 0;
-	first = stack[1][0];
-	while (i < num_c - 1)
-	{
-		stack[1][i] = stack[1][i + 1];
-		i++;
-	}
-	stack[1][i] = first;
-	return (stack);
-}
-
-int **rr(int **stack, int num_c)
-{
-	stack = ft_ra(stack, num_c);
-	stack = ft_rb(stack, num_c);
-	return (stack);
-}
-
-int	main(int argc, char **argv)
+int	**get_stack(int argc, char **argv)
 {
 	int	**stack;
 	int	i;
-	int arg_c;
-	int	num_a;
-	int	num_b;
 
-	arg_c = argc - 1;
 	stack = (int **)malloc(sizeof(int *) * 2);
-	stack[0] = (int *)malloc(sizeof(int) * (num_c));
-	stack[1] = (int *)malloc(sizeof(int) * (num_c));
+	stack[0] = (int *)malloc(sizeof(int) * (argc - 1));
+	stack[1] = (int *)malloc(sizeof(int) * (argc - 1));
 	i = 0;
 	while (argc > 1)
 	{
@@ -146,6 +68,53 @@ int	main(int argc, char **argv)
 		i++;
 		argc--;
 	}
-	i = 0;
-	stack = ft_ra(stack, num_c);
+	return (stack);
+}
+
+int	**three_arg(t_prog stack, int type)
+{
+	if (stack.stack[type][0] > stack.stack[type][1]
+			&& stack.stack[type][0] < stack.stack[type][2])
+		stack.stack = ft_sa(stack);
+	else if (stack.stack[type][0] > stack.stack[type][2]
+			&& stack.stack[type][1] < stack.stack[type][2])
+		stack.stack = ft_ra(stack);
+	else if (stack.stack[type][0] > stack.stack[type][1]
+			&& stack.stack[type][1] > stack.stack[type][2])
+	{
+		stack.stack = ft_sa(stack);
+		stack.stack = ft_rra(stack);
+	}
+	else if (stack.stack[type][0] < stack.stack[type][2]
+			&& stack.stack[type][1] > stack.stack[type][2])
+	{
+		stack.stack = ft_sa(stack);
+		stack.stack = ft_ra(stack);
+	}
+	else if (stack.stack[type][2] < stack.stack[type][1]
+			&& stack.stack[type][1] > stack.stack[type][0])
+		stack.stack = ft_rra(stack);
+	return (stack.stack);
+}
+
+int	main(int argc, char **argv)
+{
+	t_prog	stack;
+	int i = 0;
+
+	stack.num_a = argc - 1;
+	stack.num_b = 0;
+	stack.stack = get_stack(argc, argv);
+	
+	if ((argc - 1) == 3)
+		stack.stack = three_arg(stack, 0);
+	while (i < stack.num_a)
+	{
+		printf("%d ", stack.stack[0][i]);
+		i++;
+	}
+	free(stack.stack[0]);
+	free(stack.stack[1]);
+	free(stack.stack);
+	return (0);
 }
