@@ -6,17 +6,20 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:39:02 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/10 20:29:43 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/10 22:23:03 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/push_swap.h"
 
+/*Allocates memory for a new node.*/
 node_t	*new_node(int data)
 {
 	node_t	*new_node;
 
 	new_node = (node_t *)malloc(sizeof(node_t));
+	if (!new_node)
+		exit(1);
 	new_node->data = data;
 	new_node->next = NULL;
 	return (new_node);
@@ -29,12 +32,13 @@ void	printnode(node_t *head)
 	tmp = head;
 	while (tmp)
 	{
-		printf("%d", tmp->data);
+		ft_printf("%d", tmp->data);
 		tmp = tmp->next;
 	}
-	printf("\n");
+	ft_printf("\n");
 }
 
+/*Creates a list made up with all of the arguments transformed into an int.*/
 node_t	*create_list(int argc, char **argv)
 {
 	node_t	*head;
@@ -57,14 +61,18 @@ int	main(int argc, char **argv)
 	node_t	*head_b;
 
 	head_a = create_list(argc, argv);
-	head_b = create_list(argc, argv);
-	printnode(head_a);
-	printnode(head_b);
-	swap_both(&head_a, &head_b);
-	printnode(head_a);
-	printnode(head_b);
-	rev_rotate_both(&head_a, &head_b);
-	printnode(head_a);
-	printnode(head_b);
+	head_b = NULL;
+	if (check_arg(argc, argv) == 1)
+	{
+		printf("\nlol es por letras\n");
+		return (0);
+	}
+	else if (check_arg(argc, argv) == 2)
+	{
+		printf("\nlol es por repetir\n");
+		return (0);
+	}
+	if (stack_is_sorted(head_a) == 1)
+		return (0);
 	return (0);
 }

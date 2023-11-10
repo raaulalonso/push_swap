@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 20:25:01 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/10 22:22:49 by raalonso         ###   ########.fr       */
+/*   Created: 2023/03/23 19:19:24 by raalonso          #+#    #+#             */
+/*   Updated: 2023/11/01 16:46:06 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/push_swap.h"
+#include "../libft.h"
 
-/*Swaps the first two nodes in a list.*/
-void	swap(node_t **head)
+int	ft_putstr(char *s, int fd)
 {
-	node_t	*tmp;
+	int	i;
 
-	if (*head != NULL && (*head)->next != NULL)
+	i = 0;
+	if (s == NULL)
+		return (ft_putstr("(null)", 1));
+	else
 	{
-		tmp = *head;
-		*head = (*head)->next;
-		tmp->next = (*head)->next;
-		(*head)->next = tmp;
+		while (s[i] != '\0')
+		{
+			write(fd, &s[i], 1);
+			i++;
+		}
+		return (i);
 	}
-}
-
-void	swap_both(node_t **head_a, node_t **head_b)
-{
-	swap(&*head_a);
-	swap(&*head_b);
 }

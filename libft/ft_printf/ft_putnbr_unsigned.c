@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_unsigned.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 20:25:01 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/10 22:22:49 by raalonso         ###   ########.fr       */
+/*   Created: 2023/05/08 01:39:41 by raalonso          #+#    #+#             */
+/*   Updated: 2023/11/01 16:45:54 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/push_swap.h"
+#include "../libft.h"
 
-/*Swaps the first two nodes in a list.*/
-void	swap(node_t **head)
+int	ft_putnbr_unsigned(unsigned int n)
 {
-	node_t	*tmp;
+	char	num;
+	int		count;
 
-	if (*head != NULL && (*head)->next != NULL)
+	count = 0;
+	if (n > 9)
 	{
-		tmp = *head;
-		*head = (*head)->next;
-		tmp->next = (*head)->next;
-		(*head)->next = tmp;
+		count += ft_putnbr(n / 10, 1);
+		count += ft_putnbr(n % 10, 1);
 	}
-}
-
-void	swap_both(node_t **head_a, node_t **head_b)
-{
-	swap(&*head_a);
-	swap(&*head_b);
+	else
+	{
+		num = (n + 48);
+		count += write (1, &num, 1);
+	}
+	return (count);
 }

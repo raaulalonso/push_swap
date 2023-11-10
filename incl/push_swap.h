@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:38:59 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/10 20:28:51 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/10 22:23:38 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ void	rotate(node_t **head);
 void	rotate_both(node_t **head_a, node_t **head_b);
 void	rev_rotate(node_t **head);
 void	rev_rotate_both(node_t **head_a, node_t **head_b);
+int		check_arg(int argc, char **argv);
+int		stack_is_sorted(node_t *head);
 
 #endif

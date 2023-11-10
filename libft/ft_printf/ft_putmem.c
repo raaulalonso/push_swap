@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_putmem.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/10 20:25:01 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/10 22:22:49 by raalonso         ###   ########.fr       */
+/*   Created: 2023/07/13 21:17:05 by raalonso          #+#    #+#             */
+/*   Updated: 2023/11/01 16:45:50 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../incl/push_swap.h"
+#include "../libft.h"
 
-/*Swaps the first two nodes in a list.*/
-void	swap(node_t **head)
+int	ft_putmem(void *mem)
 {
-	node_t	*tmp;
+	int	count;
 
-	if (*head != NULL && (*head)->next != NULL)
-	{
-		tmp = *head;
-		*head = (*head)->next;
-		tmp->next = (*head)->next;
-		(*head)->next = tmp;
-	}
-}
-
-void	swap_both(node_t **head_a, node_t **head_b)
-{
-	swap(&*head_a);
-	swap(&*head_b);
+	count = 0;
+	write(1, "0x", 2);
+	count = ft_puthexmem((uintptr_t)mem, 1);
+	return (count + 2);
 }

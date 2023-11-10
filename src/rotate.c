@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 20:25:04 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/10 20:33:04 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/10 21:30:12 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	rotate(node_t **head)
 {
 	node_t	*current;
 
-	if (head != NULL)
+	if (head != NULL && (*head)->next != NULL)
 	{
 		current = *head;
 		while (current->next != NULL)
@@ -40,7 +40,7 @@ void	rev_rotate(node_t **head)
 {
 	node_t	*current;
 
-	if (*head != NULL)
+	if (*head != NULL && (*head)->next != NULL)
 	{
 		current = *head;
 		while (current->next->next != NULL)
