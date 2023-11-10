@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:39:02 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/09 18:00:31 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/10 20:29:43 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@ void	printnode(node_t *head)
 	tmp = head;
 	while (tmp)
 	{
-		printf("%d\n", tmp->data);
+		printf("%d", tmp->data);
 		tmp = tmp->next;
 	}
+	printf("\n");
 }
 
-int	main(int argc, char **argv)
+node_t	*create_list(int argc, char **argv)
 {
 	node_t	*head;
 	node_t	*tmp;
@@ -47,5 +48,23 @@ int	main(int argc, char **argv)
 		head = tmp;
 		argc--;
 	}
-	printnode(head);
+	return (head);
+}
+
+int	main(int argc, char **argv)
+{
+	node_t	*head_a;
+	node_t	*head_b;
+
+	head_a = create_list(argc, argv);
+	head_b = create_list(argc, argv);
+	printnode(head_a);
+	printnode(head_b);
+	swap_both(&head_a, &head_b);
+	printnode(head_a);
+	printnode(head_b);
+	rev_rotate_both(&head_a, &head_b);
+	printnode(head_a);
+	printnode(head_b);
+	return (0);
 }

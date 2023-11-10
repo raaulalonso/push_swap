@@ -4,7 +4,7 @@ LIBFLAGS = -L libft/ -lft
 
 NAME = push_swap
 
-SRCS = src/push_swap.c
+SRCS = src/push_swap.c src/swap.c src/push.c src/rotate.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
