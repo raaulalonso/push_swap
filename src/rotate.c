@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 20:25:04 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/10 20:29:30 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/10 20:33:04 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	rev_rotate(node_t **head)
 	}
 }
 
+/*Reverse rotates both stacks.*/
 void	rev_rotate_both(node_t **head_a, node_t **head_b)
 {
 	rev_rotate(&*head_a);
