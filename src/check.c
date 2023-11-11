@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:21:48 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/10 22:49:17 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/11 01:03:06 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	check_arg(int argc, char **argv)
 		while (i > 1)
 		{
 			if (ft_atoi(argv[i - 1]) == num)
-				return (2);
+				return (1);
 			i--;
 		}
 		i = 0;

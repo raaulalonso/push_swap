@@ -4,19 +4,21 @@ LIBFLAGS = -L libft/ -lft
 
 NAME = push_swap
 
-SRCS = src/push_swap.c src/swap.c src/push.c src/rotate.c src/check.c
+SRCS = src/push_swap.c src/swap.c src/push.c src/rotate.c src/check.c \
+	src/small_sort.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(MAKE) -C libft
+	$(MAKE) bonus -C libft
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFLAGS)
 
 clean:
 	$(MAKE) clean -C libft
 	rm -rf $(OBJS)
-	
+
 fclean:
 	$(MAKE) fclean -C libft
 	rm -rf $(OBJS) $(NAME)

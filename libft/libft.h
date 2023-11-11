@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 18:09:30 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/01 21:14:33 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/11 13:51:47 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,21 +52,21 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 
-typedef struct s_list
+typedef struct node
 {
-	void			*content;
-	struct s_list	*next;
-}	t_list;
+	int			data;
+	struct node	*next;
+}	node_t;
 
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void*));
-void	ft_lstclear(t_list **lst, void (*del)(void*));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+node_t	*ft_lstnew(int content);
+void	ft_lstadd_front(node_t **lst, node_t *new);
+int		ft_lstsize(node_t *lst);
+node_t	*ft_lstlast(node_t *lst);
+void	ft_lstadd_back(node_t **lst, node_t *new);
+void	ft_lstdelone(node_t *lst, void (*del)(int));
+void	ft_lstclear(node_t **lst, void (*del)(int));
+void	ft_lstiter(node_t *lst, void (*f)(int));
+node_t	*ft_lstmap(node_t *lst, int(*f)(int), void (*del)(int));
 
 int		ft_printf(char const *print, ...);
 int		ft_puthex(unsigned int n, int flag);
