@@ -8,26 +8,7 @@ import subprocess
 import os
 from math import sqrt
 
-
-"""
-__project__ = "push_swap visualizer"
-__author__ = "Emmanuel Ruaud"
-__email__ = "eruaud@student.le-101.fr"
-This python script was created to visualize your work with the PUSH_SWAP
-42 Project.
-You must put this script in the same path or in a sibling path of your program
-Of course you need Python3 with the builtin Tkinter.
-You can install it with Brew.
---> Brew install python3
-Execute the script with :
---> python3 pyviz.py `ruby -e "puts (-200..200).to_a.shuffle.join(' ')"`
-You can change the PUSHS_PATH to get to the relative path of your push_swap
-You can decrease or increase the speed with the matching buttons.
-"""
-
-
 RELATIVE_PATH = r'push_swap'
-
 
 class PsGui:
     def __init__(self, master):
