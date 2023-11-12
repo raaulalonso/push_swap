@@ -6,7 +6,7 @@
  [![Size](https://img.shields.io/github/repo-size/Apeslx/push_swap?color=blue&label=Size&logo=Size&style=?style=flat)](https://github.com/Apeslx/push_swap)
  [![Activity](https://img.shields.io/github/last-commit/Apeslx/push_swap?color=red&label=Last%20Commit&style=flat)](https://github.com/Apeslx/push_swap)
  
-"This project focuses on algorithmics. I've developed an algorithm capable of sorting, from smallest to bigest, an undefined number of unique values. To achieve this, it utilizes two stacks and a specific set of instructions outlined below. Additionally, a visualizer is included to illustrate the sorting process for better comprehension."
+This project focuses on algorithmics. I've developed an algorithm capable of sorting, from smallest to bigest, an undefined number of unique values. To achieve this, it utilizes two stacks and a specific set of instructions outlined below. Additionally, a visualizer is included to illustrate the sorting process for better comprehension.
 
 ## Getting Started
 
