@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:39:02 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/12 18:01:41 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/12 19:06:24 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,26 +42,24 @@ node_t	*create_list(int argc, char **argv)
 	return (head);
 }
 
+/* 
+1º	Check there are minimun 2 arguments. Also check for invalid arguments.
+2º	Create the list (stack a) with all of the arguments. Also incicialize stack_b.
+3º	Check if stack a is already sorted by default.
+4º	Decide which algorithm is going to be used. Small sort for 5 or less arguments.
+	Big sort for more arguments.
+*/
 int	main(int argc, char **argv)
 {
 	node_t	*head_a;
 	node_t	*head_b;
 
-	/*Check there are minimun 2 arguments. Also check for invalid arguments.*/
 	if (argc <= 2 || check_arg(argc, argv) == 1)
 		return (0);
-	
-	/*Create the list (stack a) with all of the arguments. Also incicialize 
-	stack_b.*/
 	head_a = create_list(argc, argv);
 	head_b = NULL;
-
-	/*Check if stack a is already sorted by default.*/
 	if (stack_is_sorted(head_a) == 1)
 		return (0);
-
-	/*Decide which algorithm is going to be used. Small sort for 5 or less
-	arguments. Big sort for more arguments.*/
 	if ((argc - 1) <= 3)
 		small_sort(&head_a, argc - 1);
 	else
@@ -72,6 +70,5 @@ int	main(int argc, char **argv)
 			swap(&head_b, 2);
 		big_sort(&head_a, &head_b);
 	}
-	
 	return (0);
 }
