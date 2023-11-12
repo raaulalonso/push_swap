@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:39:02 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/12 15:01:59 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/12 17:04:40 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,11 @@ void	insert_into_b(int movements, int f, node_t **head_a, node_t **head_b)
 		i--;
 	}
 	push(&*head_a, &*head_b, 2);
-	while (i < movements)
+	/*while (i < movements)
 	{
 		rotate_reverse(2, f, &*head_b);
 		i++;
-	}
+	}*/
 }
 
 node_t	*get_cheaper(node_t **head_a, node_t **head_b, int max_b, int min_b)
@@ -202,11 +202,13 @@ void	big_sort(node_t **head_a, node_t **head_b)
 	int		count;
 	int		lst_size;
 	int		f;
+	int		aux;
 	int		max_b;
 	int		min_b;
 
 	max_b = (*head_b)->data;
 	min_b = (*head_b)->next->data;
+	aux = 0;
 	count = 0;
 	lst_size = ft_lstsize(*head_a);
 	while (count < lst_size)
@@ -218,27 +220,43 @@ void	big_sort(node_t **head_a, node_t **head_b)
 		//move_cheaper(&*head_a, cheaper);
 		f = 0;
 		current_a = *head_a;
-		/*if (current_a->data > max_b)
+		if (current_a->data > max_b)
 		{
+			aux = current_a->data;
 			put_above_max(&*head_a, &*head_b, max_b);
-			max_b = current_a->data;
+			max_b = aux;
 		}
 		else if (current_a->data < min_b)
 		{
-			put_above_max(&*head_a, &*head_b, max_b);
 			min_b = current_a->data;
-		}*/
-		//else
-		//{
-			while (current_b != NULL && current_a->data < current_b->data)
+			put_above_max(&*head_a, &*head_b, max_b);
+		}
+		else
+		{
+			while (current_b != NULL && max_b != current_b->data)
 			{
 				current_b = current_b->next;
 				movements++;
 			}
+			while (current_b != NULL && current_a->data < current_b->data)
+			{
+				current_b = current_b->next;
+				movements++;	
+			}
+			if (current_b == NULL)
+			{
+				current_b = *head_b;
+				movements = 0;
+				while (current_b != NULL && current_a->data < current_b->data)
+				{
+					current_b = current_b->next;
+					movements++;
+				}
+			}
 			if (movements > ft_lstsize(*head_b) / 2)
 				f = 1;
 			insert_into_b(movements, f, &*head_a, &*head_b);
-		//}
+		}
 		count++;
 	}
 	count = 0;
