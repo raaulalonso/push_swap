@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:38:59 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/11 20:27:43 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/12 18:01:53 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,12 @@ int		check_arg(int argc, char **argv);
 int		stack_is_sorted(node_t *head);
 void	small_sort(node_t **head_a, int num);
 void	three_sort(node_t **head_a);
+void	big_sort(node_t **head_a, node_t **head_b);
+void	insert_into_b(int movements, int f, node_t **head_a, node_t **head_b);
+void	move_cheaper(node_t **head_a, node_t *cheaper);
+node_t	*get_cheaper(node_t **head_a, node_t **head_b, int max_b, int min_b);
+int		get_movements(node_t **head_a, node_t **head_b, int max_b);
+void	put_above_max(node_t **head_a, node_t **head_b, int max_b);
+void	check_max_min(node_t **head_a, node_t **head_b, int *max_b, int *min_b);
 
 #endif
