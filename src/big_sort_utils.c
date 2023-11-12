@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:56:30 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/12 18:06:08 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/12 19:00:06 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,49 +63,55 @@ void	move_cheaper(node_t **head_a, node_t *cheaper)
 	}
 }
 
+int	movements_tomax(node_t *current_a, node_t **head_b, int max_b)
+{
+	int		movements;
+	node_t	*current_b;
+
+	movements = 0;
+	current_b = *head_b;
+	while (current_b != NULL && current_a->data != max_b)
+	{
+		current_b = current_b->next;
+		movements++;
+	}
+	return (movements);
+}
+
+int	get_price(node_t **head_b, node_t *current_a, int max_b, int min_b)
+{
+	int	movements;
+
+	movements = 0;
+	if (current_a->data > max_b || current_a->data < min_b)
+		movements = movements_tomax(current_a, &*head_b, max_b);
+	else
+		movements = get_movements(&current_a, &*head_b, max_b);
+	if (movements > ft_lstsize(*head_b) / 2)
+		movements = ft_lstsize(*head_b) - movements;
+	return (movements);
+}
+
 node_t	*get_cheaper(node_t **head_a, node_t **head_b, int max_b, int min_b)
 {
 	node_t	*current_a;
-	node_t	*current_b;
 	node_t	*cheaper;
-	int		movements;
 	int		price;
 	int		i;
 
-	i = 0;
-	price = 0;
-	movements = 0;
 	current_a = *head_a;
-	current_b = *head_b;
+	price = 0;
+	i = 0;
 	while (current_a != NULL)
 	{
-		if (current_a->data > max_b || current_a->data < min_b)
+		if (get_price(&*head_b, current_a, max_b, min_b) + i < price
+			|| price == 0)
 		{
-			while (current_b != NULL && current_a->data != max_b)
-			{
-				current_b = current_b->next;
-				movements++;
-			}
-		}
-		else
-		{
-			while (current_b != NULL && current_a->data < current_b->data)
-			{
-				current_b = current_b->next;
-				movements++;
-			}
-		}
-		if (movements > ft_lstsize(*head_b) / 2)
-			movements = ft_lstsize(*head_b) - movements;
-		if (movements + i < price || price == 0)
-		{
-			price = movements + i + 1;
+			price = get_price(&*head_b, current_a, max_b, min_b) + i + 1;
 			cheaper = current_a;
 		}
-		movements = 0;
-		i++;
-		current_b = *head_b;
 		current_a = current_a->next;
+		i++;
 	}
 	return (cheaper);
 }
