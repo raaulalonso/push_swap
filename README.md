@@ -77,3 +77,5 @@ The algorithm only uses the following instructions when sorting:
 - Reverse rotate both (`rrr`): Reverse rotates both stacks.
 
 ## Screenshots
+
+![Demo GIF](https://github.com/Apeslx/push_swap/blob/main/screenshots/ScreenRecording.gif)
