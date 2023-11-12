@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:39:02 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/12 17:04:40 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/12 17:17:04 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,6 @@ void	insert_into_b(int movements, int f, node_t **head_a, node_t **head_b)
 		i--;
 	}
 	push(&*head_a, &*head_b, 2);
-	/*while (i < movements)
-	{
-		rotate_reverse(2, f, &*head_b);
-		i++;
-	}*/
 }
 
 node_t	*get_cheaper(node_t **head_a, node_t **head_b, int max_b, int min_b)
@@ -216,8 +211,8 @@ void	big_sort(node_t **head_a, node_t **head_b)
 		movements = 0;
 		current_b = *head_b;
 		current_a = *head_a;
-		//cheaper = get_cheaper(&*head_a, &*head_b, max_b, min_b);
-		//move_cheaper(&*head_a, cheaper);
+		cheaper = get_cheaper(&*head_a, &*head_b, max_b, min_b);
+		move_cheaper(&*head_a, cheaper);
 		f = 0;
 		current_a = *head_a;
 		if (current_a->data > max_b)
@@ -265,6 +260,10 @@ void	big_sort(node_t **head_a, node_t **head_b)
 	{
 		push(&*head_b, &*head_a, 1);
 		count++;
+	}
+	while ((*head_a)->data != min_b)
+	{
+		rev_rotate(&*head_a, 1);
 	}
 }
 
