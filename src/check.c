@@ -6,11 +6,26 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:21:48 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/14 09:42:34 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:29:52 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/push_swap.h"
+
+int	check_are_num(int argc, char **argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[argc - 1][i] != '\0')
+	{
+		if ((argv[argc - 1][i] < '0' || argv[argc - 1][i] > '9')
+			&& argv[argc - 1][i] != '-')
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 /*Checks that the arguments are only numbers, and they do not repeat.*/
 int	check_arg(int argc, char **argv)
@@ -18,16 +33,10 @@ int	check_arg(int argc, char **argv)
 	int		i;
 	long	num;
 
-	i = 0;
 	while (argc > 1)
 	{
-		while (argv[argc - 1][i] != '\0')
-		{
-			if ((argv[argc - 1][i] < '0' || argv[argc - 1][i] > '9')
-				&& argv[argc - 1][i] != '-')
-				return (1);
-			i++;
-		}
+		if (check_are_num(argc, argv) == 1)
+			return (1);
 		i = argc - 1;
 		num = (long)ft_atoi(argv[argc - 1]);
 		if (num > 2147483647 || num < -2147483648)
@@ -38,16 +47,15 @@ int	check_arg(int argc, char **argv)
 				return (1);
 			i--;
 		}
-		i = 0;
 		argc--;
 	}
 	return (0);
 }
 
 /*Checks if the list pointed by "head" is already sorted.*/
-int	stack_is_sorted(node_t *head)
+int	stack_is_sorted(t_node *head)
 {
-	node_t	*current;
+	t_node	*current;
 
 	current = head;
 	while (current->next != NULL)

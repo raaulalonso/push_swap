@@ -6,13 +6,13 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 01:08:59 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/11 13:44:01 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:32:57 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-node_t	*ft_lstlast(node_t *lst)
+t_node	*ft_lstlast(t_node *lst)
 {
 	if (lst == 0)
 		return (0);

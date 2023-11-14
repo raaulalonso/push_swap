@@ -6,13 +6,13 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:53:37 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/14 09:46:53 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:29:32 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/push_swap.h"
 
-void	finish_sort(node_t **head_a, node_t **head_b, int min_b)
+void	finish_sort(t_node **head_a, t_node **head_b, int min_b)
 {
 	int	i;
 	int	lst_size;
@@ -30,7 +30,7 @@ void	finish_sort(node_t **head_a, node_t **head_b, int min_b)
 	}
 }
 
-void	sort_loop(node_t **head_a, node_t **head_b, int *max_b, int *min_b)
+void	sort_loop(t_node **head_a, t_node **head_b, int *max_b, int *min_b)
 {
 	int	movements;
 	int	f;
@@ -49,7 +49,7 @@ void	sort_loop(node_t **head_a, node_t **head_b, int *max_b, int *min_b)
 	}
 }
 
-void	big_sort(node_t **head_a, node_t **head_b)
+void	big_sort(t_node **head_a, t_node **head_b)
 {
 	int		i;
 	int		lst_size;

@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 18:09:30 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/14 09:44:41 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:27:29 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,17 @@ typedef struct node
 {
 	int			data;
 	struct node	*next;
-}	node_t;
+}	t_node;
 
-node_t	*ft_lstnew(int content);
-void	ft_lstadd_front(node_t **lst, node_t *new);
-int		ft_lstsize(node_t *lst);
-node_t	*ft_lstlast(node_t *lst);
-void	ft_lstadd_back(node_t **lst, node_t *new);
-void	ft_lstdelone(node_t *lst, void (*del)(int));
-void	ft_lstclear(node_t **lst, void (*del)(int));
-void	ft_lstiter(node_t *lst, void (*f)(int));
-node_t	*ft_lstmap(node_t *lst, int(*f)(int), void (*del)(int));
+t_node	*ft_lstnew(int content);
+void	ft_lstadd_front(t_node **lst, t_node *new);
+int		ft_lstsize(t_node *lst);
+t_node	*ft_lstlast(t_node *lst);
+void	ft_lstadd_back(t_node **lst, t_node *new);
+void	ft_lstdelone(t_node *lst, void (*del)(int));
+void	ft_lstclear(t_node **lst, void (*del)(int));
+void	ft_lstiter(t_node *lst, void (*f)(int));
+t_node	*ft_lstmap(t_node *lst, int(*f)(int), void (*del)(int));
 
 int		ft_printf(char const *print, ...);
 int		ft_puthex(unsigned int n, int flag);

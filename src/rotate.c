@@ -6,16 +6,16 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 20:25:04 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/11 12:29:52 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:30:41 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/push_swap.h"
 
 /*Moves the first node of the list to the end.*/
-void	rotate(node_t **head, int print)
+void	rotate(t_node **head, int print)
 {
-	node_t	*current;
+	t_node	*current;
 
 	if (head != NULL && (*head)->next != NULL)
 	{
@@ -33,7 +33,7 @@ void	rotate(node_t **head, int print)
 }
 
 /*Rotates both stacks.*/
-void	rotate_both(node_t **head_a, node_t **head_b)
+void	rotate_both(t_node **head_a, t_node **head_b)
 {
 	rotate(&*head_a, 3);
 	rotate(&*head_b, 3);
@@ -41,9 +41,9 @@ void	rotate_both(node_t **head_a, node_t **head_b)
 }
 
 /*Moves the last node of the list to the start.*/
-void	rev_rotate(node_t **head, int print)
+void	rev_rotate(t_node **head, int print)
 {
-	node_t	*current;
+	t_node	*current;
 
 	if (*head != NULL && (*head)->next != NULL)
 	{
@@ -61,7 +61,7 @@ void	rev_rotate(node_t **head, int print)
 }
 
 /*Reverse rotates both stacks.*/
-void	rev_rotate_both(node_t **head_a, node_t **head_b)
+void	rev_rotate_both(t_node **head_a, t_node **head_b)
 {
 	rev_rotate(&*head_a, 3);
 	rev_rotate(&*head_b, 3);

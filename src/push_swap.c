@@ -6,18 +6,18 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:39:02 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/14 09:45:37 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:30:06 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/push_swap.h"
 
 /*Allocates memory for a new node.*/
-node_t	*new_node(int data)
+t_node	*new_node(int data)
 {
-	node_t	*new_node;
+	t_node	*new_node;
 
-	new_node = (node_t *)malloc(sizeof(node_t));
+	new_node = (t_node *)malloc(sizeof(t_node));
 	if (!new_node)
 		exit(1);
 	new_node->data = data;
@@ -26,10 +26,10 @@ node_t	*new_node(int data)
 }
 
 /*Creates a list made up with all of the arguments transformed into an int.*/
-node_t	*create_list(int argc, char **argv)
+t_node	*create_list(int argc, char **argv)
 {
-	node_t	*head;
-	node_t	*tmp;
+	t_node	*head;
+	t_node	*tmp;
 
 	head = NULL;
 	while (argc > 1)
@@ -51,8 +51,8 @@ node_t	*create_list(int argc, char **argv)
 */
 int	main(int argc, char **argv)
 {
-	node_t	*head_a;
-	node_t	*head_b;
+	t_node	*head_a;
+	t_node	*head_b;
 
 	if (argc <= 2 || check_arg(argc, argv) == 1)
 	{

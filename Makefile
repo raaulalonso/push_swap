@@ -5,7 +5,7 @@ LIBFLAGS = -L libft/ -lft
 NAME = push_swap
 
 SRCS = src/push_swap.c src/swap.c src/push.c src/rotate.c src/check.c \
-	src/small_sort.c src/big_sort.c src/big_sort_utils.c
+	src/small_sort.c src/big_sort.c src/big_sort_utils.c src/cheaper.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

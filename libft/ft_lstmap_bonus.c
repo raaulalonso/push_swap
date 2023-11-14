@@ -6,17 +6,17 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 17:19:32 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/11 13:50:45 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:33:04 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-node_t	*ft_lstmap(node_t *lst, int (*f)(int), void (*del)(int))
+t_node	*ft_lstmap(t_node *lst, int (*f)(int), void (*del)(int))
 {
-	node_t	*new;
-	node_t	*head;
-	node_t	*tmp;
+	t_node	*new;
+	t_node	*head;
+	t_node	*tmp;
 
 	if (lst)
 	{

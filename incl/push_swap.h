@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:38:59 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/12 18:01:53 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:28:12 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,24 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-void	swap(node_t **head, int print);
-void	swap_both(node_t **head_a, node_t **head_b);
-void	push(node_t **head_1, node_t **head_2, int print);
-void	rotate(node_t **head, int print);
-void	rotate_both(node_t **head_a, node_t **head_b);
-void	rev_rotate(node_t **head, int print);
-void	rev_rotate_both(node_t **head_a, node_t **head_b);
+void	swap(t_node **head, int print);
+void	swap_both(t_node **head_a, t_node **head_b);
+void	push(t_node **head_1, t_node **head_2, int print);
+void	rotate(t_node **head, int print);
+void	rotate_both(t_node **head_a, t_node **head_b);
+void	rev_rotate(t_node **head, int print);
+void	rev_rotate_both(t_node **head_a, t_node **head_b);
 int		check_arg(int argc, char **argv);
-int		stack_is_sorted(node_t *head);
-void	small_sort(node_t **head_a, int num);
-void	three_sort(node_t **head_a);
-void	big_sort(node_t **head_a, node_t **head_b);
-void	insert_into_b(int movements, int f, node_t **head_a, node_t **head_b);
-void	move_cheaper(node_t **head_a, node_t *cheaper);
-node_t	*get_cheaper(node_t **head_a, node_t **head_b, int max_b, int min_b);
-int		get_movements(node_t **head_a, node_t **head_b, int max_b);
-void	put_above_max(node_t **head_a, node_t **head_b, int max_b);
-void	check_max_min(node_t **head_a, node_t **head_b, int *max_b, int *min_b);
+int		stack_is_sorted(t_node *head);
+void	small_sort(t_node **head_a, int num);
+void	three_sort(t_node **head_a);
+void	big_sort(t_node **head_a, t_node **head_b);
+void	insert_into_b(int movements, int f, t_node **head_a, t_node **head_b);
+void	move_cheaper(t_node **head_a, t_node *cheaper);
+t_node	*get_cheaper(t_node **head_a, t_node **head_b, int max_b, int min_b);
+int		get_movements(t_node **head_a, t_node **head_b, int max_b);
+void	put_above_max(t_node **head_a, t_node **head_b, int max_b);
+void	check_max_min(t_node **head_a, t_node **head_b, int *max_b, int *min_b);
+int		moves_to_max(t_node *current_b, t_node **head_b, int max_b, int *f);
 
 #endif

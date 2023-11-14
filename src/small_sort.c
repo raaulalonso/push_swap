@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 20:26:20 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/11 20:27:19 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:30:54 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 /* 2 | 3 | 1 */
 /* 3 | 2 | 1 */
 /* 1 | 3 | 2 */
-void	three_sort(node_t **head_a)
+void	three_sort(t_node **head_a)
 {
 	if ((*head_a)->next->data < (*head_a)->data
 		&& (*head_a)->data < (*head_a)->next->next->data)
@@ -42,7 +42,7 @@ void	three_sort(node_t **head_a)
 	}
 }
 
-void	small_sort(node_t **head_a, int num)
+void	small_sort(t_node **head_a, int num)
 {
 	if (num == 2)
 		swap(&*head_a, 1);

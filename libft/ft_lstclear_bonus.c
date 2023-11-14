@@ -6,16 +6,16 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 16:59:33 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/11 13:49:13 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:32:36 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(node_t **lst, void (*del)(int))
+void	ft_lstclear(t_node **lst, void (*del)(int))
 {
-	node_t	*aux;
-	node_t	*next;
+	t_node	*aux;
+	t_node	*next;
 
 	aux = *lst;
 	while (aux)

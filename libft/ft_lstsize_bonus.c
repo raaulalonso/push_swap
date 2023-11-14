@@ -6,13 +6,13 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 00:52:09 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/11 13:44:44 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 10:33:17 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(node_t *lst)
+int	ft_lstsize(t_node *lst)
 {
 	int	i;
 
