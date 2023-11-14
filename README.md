@@ -56,9 +56,22 @@ The numbers in parenthesis indicate the numbers to sort. Ex: (1..100) = from 1 t
 
 ## About the algorithm
 
+This is a concise overview of its functioning. If you aim to reproduce it, there are several additional factors to consider.
 
+### How it works
 
-### Pseudo code
+1. The algorithm begins by pushing two numbers from stack A to stack B. This is necessary as it requires both a maximum and a minimum number to function properly.
+
+2. Next, it compares the number of instructions needed for each number in stack A to be correctly placed in stack B. The numbers in stack B are arranged from largest to smallest. This ensures that when they are pushed back to stack A, they are correctly sorted from smallest to largest.
+
+3. The cheapest number is moved to the top of stack A. <br>
+If the number being pushed is either a new maximum or minimum, it is placed just above the old maximum number.
+
+4. Stack B is then rotated to position the number from stack A correctly when puhsing.
+   
+5. Steps 2 - 3 are repeated until every number has been pushed to stack B.
+
+6. Finally, all numbers are pushed back to stack A. If the smallest number is not at the top of the stack, stack A is rotated until it is.
 
 ### Instructions
 
