@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:39:02 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/12 19:06:24 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 09:45:37 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ int	main(int argc, char **argv)
 	node_t	*head_b;
 
 	if (argc <= 2 || check_arg(argc, argv) == 1)
+	{
+		ft_printf("Error\n");
 		return (0);
+	}
 	head_a = create_list(argc, argv);
 	head_b = NULL;
 	if (stack_is_sorted(head_a) == 1)

@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:21:48 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/11 01:03:06 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 09:42:34 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 /*Checks that the arguments are only numbers, and they do not repeat.*/
 int	check_arg(int argc, char **argv)
 {
-	int	i;
-	int	num;
+	int		i;
+	long	num;
 
 	i = 0;
 	while (argc > 1)
@@ -29,7 +29,9 @@ int	check_arg(int argc, char **argv)
 			i++;
 		}
 		i = argc - 1;
-		num = ft_atoi(argv[argc - 1]);
+		num = (long)ft_atoi(argv[argc - 1]);
+		if (num > 2147483647 || num < -2147483648)
+			return (1);
 		while (i > 1)
 		{
 			if (ft_atoi(argv[i - 1]) == num)

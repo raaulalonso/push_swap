@@ -6,14 +6,14 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:43:04 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/10 21:48:01 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 09:44:30 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_number(const char *str, int i)
+static long	ft_number(const char *str, int i)
 {
-	int	j;
-	int	num;
+	int		j;
+	long	num;
 
 	j = 0;
 	num = 0;
@@ -26,11 +26,11 @@ static int	ft_number(const char *str, int i)
 	return (num);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
-	int	i;
-	int	num;
-	int	sign;
+	int		i;
+	long	num;
+	int		sign;
 
 	i = 0;
 	num = 0;

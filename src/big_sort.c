@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:53:37 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/12 18:21:28 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 09:46:53 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	sort_loop(node_t **head_a, node_t **head_b, int *max_b, int *min_b)
 }
 
 void	big_sort(node_t **head_a, node_t **head_b)
-{	
+{
 	int		i;
 	int		lst_size;
 	int		max_b;
