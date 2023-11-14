@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:39:02 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/14 18:13:58 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 18:34:41 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ int	main(int argc, char **argv)
 	head_b = NULL;
 	if (stack_is_sorted(head_a) == 1)
 		return (0);
-	if ((argc - 1) <= 3)
-		small_sort(&head_a, argc - 1);
+	if ((argc - 1) <= 5)
+		small_sort(&head_a, &head_b, argc - 1);
 	else
 	{
 		push(&head_a, &head_b, 2);

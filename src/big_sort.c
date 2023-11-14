@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:53:37 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/14 10:29:32 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 21:39:31 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,36 @@
 
 void	finish_sort(t_node **head_a, t_node **head_b, int min_b)
 {
-	int	i;
-	int	lst_size;
+	t_node	*current;
+	int		i;
+	int		f;
 
+	f = 0;
 	i = 0;
-	lst_size = ft_lstsize(*head_b);
-	while (i < lst_size)
+	while (ft_lstsize(*head_b) > 0)
 	{
 		push(&*head_b, &*head_a, 1);
 		i++;
 	}
-	while ((*head_a)->data != min_b)
+	i = 0;
+	current = *head_a;
+	while (current->data != min_b)
 	{
-		rev_rotate(&*head_a, 1);
+		current = current->next;
+		i++;
+	}
+	if (i > ft_lstsize(*head_a) / 2)
+	{
+		f = 1;
+		i = (ft_lstsize(*head_a) - i);
+	}
+	while (i > 0)
+	{
+		if (f == 1)
+			rev_rotate(&*head_a, 1);
+		else
+			rotate(&*head_a, 1);
+		i--;
 	}
 }
 
