@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:39:02 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/14 10:30:06 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/14 18:13:58 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,6 @@ t_node	*create_list(int argc, char **argv)
 	return (head);
 }
 
-/* 
-1º	Check there are minimun 2 arguments. Also check for invalid arguments.
-2º	Create the list (stack a) with all of the arguments. Also incicialize stack_b.
-3º	Check if stack a is already sorted by default.
-4º	Decide which algorithm is going to be used. Small sort for 5 or less arguments.
-	Big sort for more arguments.
-*/
 int	main(int argc, char **argv)
 {
 	t_node	*head_a;
