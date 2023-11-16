@@ -6,25 +6,19 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 17:53:37 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/14 21:39:31 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/16 20:08:11 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/push_swap.h"
 
-void	finish_sort(t_node **head_a, t_node **head_b, int min_b)
+void	finish_sort(t_node **head_a, int min_b)
 {
 	t_node	*current;
 	int		i;
 	int		f;
 
 	f = 0;
-	i = 0;
-	while (ft_lstsize(*head_b) > 0)
-	{
-		push(&*head_b, &*head_a, 1);
-		i++;
-	}
 	i = 0;
 	current = *head_a;
 	while (current->data != min_b)
@@ -82,5 +76,7 @@ void	big_sort(t_node **head_a, t_node **head_b)
 		sort_loop(&*head_a, &*head_b, &max_b, &min_b);
 		i++;
 	}
-	finish_sort(&*head_a, &*head_b, min_b);
+	while (ft_lstsize(*head_b) > 0)
+		push(&*head_b, &*head_a, 1);
+	finish_sort(&*head_a, min_b);
 }

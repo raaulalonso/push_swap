@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 20:26:20 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/14 21:39:11 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/16 21:23:02 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,103 +42,31 @@ void	three_sort(t_node **head_a)
 	}
 }
 
-void	five_sort_movements(t_node **head_a, t_node **head_b, int min)
+void	five_sort_loop(t_node **head_a, t_node **head_b, int min)
 {
 	t_node	*current;
-	int		i;
-	int		j;
+	int		movements;
 	int		f;
 
-	i = 0;
-	j = 0;
 	f = 0;
-	current = *head_a;
-	while (current != NULL && current->data != min)
+	movements = movements_for_five(&*head_a, &*head_b, min);
+	if (movements == -1)
 	{
-		current = current->next;
-		i++;
-	}
-	while (current != NULL && (*head_b)->data > current->data)
-	{
-		current = current->next;
-		i++;
-	}
-	if (current == NULL)
-	{
-		i = 0;
+		movements = 0;
 		current = *head_a;
 		while (current != NULL && (*head_b)->data > current->data)
 		{
 			current = current->next;
-			i++;
+			movements++;
 		}
 		if (current == NULL)
 		{
-			finish_five_sort(&*head_a, min);
+			finish_sort(&*head_a, min);
 			push(&*head_b, &*head_a, 1);
 			return ;
 		}
 	}
-	if (i > ft_lstsize(*head_a) / 2)
-	{
-		i = ft_lstsize(*head_a) - i;
-		f = 1;
-		j = i + 1;
-	}
-	else
-		j = i;
-	while (i > 0)
-	{
-		if (f == 1)
-			rev_rotate(&*head_a, 1);
-		else
-			rotate(&*head_a, 1);
-		i--;
-	}
-	push(&*head_b, &*head_a, 1);
-}
-
-int	check_min(t_node **head_a, int min)
-{
-	t_node	*current;
-
-	current = *head_a;
-	while (current != NULL)
-	{
-		if (current->data < min)
-			min = current->data;
-		current = current->next;
-	}
-	return (min);
-}
-
-void	finish_five_sort(t_node **head_a, int min)
-{
-	t_node	*current;
-	int		i;
-	int		f;
-
-	i = 0;
-	f = 0;
-	current = *head_a;
-	while (current->data != min)
-	{
-		current = current->next;
-		i++;
-	}
-	if (i > ft_lstsize(*head_a) / 2)
-	{
-		f = 1;
-		i = (ft_lstsize(*head_a) - i);
-	}
-	while (i > 0)
-	{
-		if (f == 1)
-			rev_rotate(&*head_a, 1);
-		else
-			rotate(&*head_a, 1);
-		i--;
-	}
+	insert_into_a(movements, &*head_a, &*head_b);
 }
 
 void	five_sort(t_node **head_a, t_node **head_b)
@@ -146,6 +74,7 @@ void	five_sort(t_node **head_a, t_node **head_b)
 	int	i;
 	int	movements;
 	int	min;
+	int	lst_size;
 
 	i = 0;
 	movements = 0;
@@ -153,14 +82,15 @@ void	five_sort(t_node **head_a, t_node **head_b)
 		push(&*head_a, &*head_b, 2);
 	three_sort(&*head_a);
 	min = (*head_a)->data;
-	while (i <= ft_lstsize(*head_b))
+	lst_size = ft_lstsize(*head_b);
+	while (i <= lst_size - 1)
 	{
-		five_sort_movements(&*head_a, &*head_b, check_min(&*head_a, min));
+		five_sort_loop(&*head_a, &*head_b, check_min(&*head_a, min));
 		i++;
 	}
 	min = check_min(&*head_a, min);
 	if ((*head_a)->data != min)
-		finish_five_sort(&*head_a, min);
+		finish_sort(&*head_a, min);
 }
 
 void	small_sort(t_node **head_a, t_node **head_b, int num)
