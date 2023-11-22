@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:39:02 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/16 23:10:34 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/22 21:04:20 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ int	main(int argc, char **argv)
 			swap(&head_b, 2);
 		big_sort(&head_a, &head_b);
 	}
+	//destroy_list();
 	return (0);
 }
