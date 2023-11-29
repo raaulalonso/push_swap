@@ -6,20 +6,23 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:39:02 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/29 15:46:30 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/29 16:28:39 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incl/push_swap.h"
 
 /*Allocates memory for a new node.*/
-t_node	*new_node(int data)
+t_node	*new_node(int data, t_node **head)
 {
 	t_node	*new_node;
 
 	new_node = (t_node *)malloc(sizeof(t_node));
 	if (!new_node)
+	{
+		destroy_list(&*head);
 		exit(1);
+	}
 	new_node->data = data;
 	new_node->next = NULL;
 	return (new_node);
@@ -34,12 +37,27 @@ t_node	*create_list(int argc, char **argv)
 	head = NULL;
 	while (argc > 1)
 	{
-		tmp = new_node(ft_atoi(argv[argc - 1]));
+		tmp = new_node(ft_atoi(argv[argc - 1]), &head);
 		tmp->next = head;
 		head = tmp;
 		argc--;
 	}
 	return (head);
+}
+
+/*Frees all the nodes of the list*/
+void	destroy_list(t_node **head_a)
+{
+	t_node	*aux;
+
+	aux = (*head_a)->next;
+	while (aux != NULL)
+	{
+		free(*head_a);
+		*head_a = aux;
+		aux = aux->next;
+	}
+	free(*head_a);
 }
 
 int	main(int argc, char **argv)
@@ -49,7 +67,8 @@ int	main(int argc, char **argv)
 
 	if (argc < 2 || check_arg(argc, argv) == 1)
 	{
-		ft_printf("Error\n");
+		if (argc >= 2)
+			ft_printf("Error\n");
 		return (0);
 	}
 	head_a = create_list(argc, argv);
@@ -66,6 +85,6 @@ int	main(int argc, char **argv)
 			swap(&head_b, 2);
 		big_sort(&head_a, &head_b);
 	}
-	// destroy_list();
+	destroy_list(&head_a);
 	return (0);
 }

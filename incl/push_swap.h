@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:38:59 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/16 21:24:30 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/29 16:16:29 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		stack_is_sorted(t_node *head);
 void	small_sort(t_node **head_a, t_node **head_b, int num);
 void	three_sort(t_node **head_a);
 void	big_sort(t_node **head_a, t_node **head_b);
+void	destroy_list(t_node **head_a);
 
 void	insert_into_b(int movements, int f, t_node **head_a, t_node **head_b);
 void	move_cheaper(t_node **head_a, t_node *cheaper);

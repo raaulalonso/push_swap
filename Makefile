@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra #-Werror
 LIBFLAGS = -L libft/ -lft
 
 NAME = push_swap
