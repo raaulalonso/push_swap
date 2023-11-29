@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 22:21:48 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/14 10:29:52 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/11/29 15:55:20 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	check_are_num(int argc, char **argv)
 	{
 		if ((argv[argc - 1][i] < '0' || argv[argc - 1][i] > '9')
 			&& argv[argc - 1][i] != '-')
+			return (1);
+		if (argv[argc - 1][i] == '-' && (argv[argc - 1][i + 1] == '\0' || i != 0))
 			return (1);
 		i++;
 	}
