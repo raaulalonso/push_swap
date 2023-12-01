@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:39:02 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/29 18:59:55 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:58:57 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,85 +58,22 @@ void	destroy_list(t_node **head_a)
 		aux = aux->next;
 	}
 	free(*head_a);
-}
-
-int	countwords(char *str, char c)
-{
-	int	i;
-	int	f;
-	int	wnum;
-
-	i = 0;
-	f = 0;
-	wnum = 0;
-	while (str[i])
-	{
-		if (str[i] != c)
-		{
-			if (f == 0)
-				wnum++;
-			f = 1;
-		}
-		else
-			f = 0;
-		i++;
-	}
-	return (wnum);
-}
-
-char	**divide_arg(char **argv, int *argc)
-{
-	char	*str;
-	char	**new_argv;
-
-	str = ft_strjoin("./push_swap ", argv[1]); // proteger
-	*argc = countwords(str, ' ');
-	new_argv = ft_split(str, ' '); // proteger
-	free(str);
-	return (new_argv);
-}
-
-void	do_checks(int *argc, char ***argv)
-{
-	if (*argc == 2)
-		*argv = divide_arg(*argv, &*argc);
-	if (check_arg(*argc, *argv) == 1)
-	{
-		ft_printf("Error\n");
-		exit(1);
-	}
-}
-
-void	free_argv(char ***argv, int argc)
-{
-	int	i;
-
-	i = 0;
-	while (i < argc)
-	{
-		free((*argv)[i]);
-		i++;
-	}
-	free(*argv);
-}
-
-void	leaks(void)
-{
-	system("leaks push_swap");
+	exit(0);
 }
 
 int	main(int argc, char **argv)
 {
 	t_node	*head_a;
 	t_node	*head_b;
+	int		f;
 
-	atexit(leaks);
-	do_checks(&argc, &argv);
+	f = 0;
+	do_checks(&argc, &argv, &f);
 	head_a = create_list(argc, argv);
-	free_argv(&argv, argc); // solucionar para cuando un numero -> "4" /// no liberar si son varios argumentos -> 2 4 3 5
+	free_argv(&argv, argc, f);
 	head_b = NULL;
 	if (argc == 1 || stack_is_sorted(head_a) == 1)
-		return (0);
+		destroy_list(&head_a);
 	if ((argc - 1) <= 5)
 		small_sort(&head_a, &head_b, argc - 1);
 	else

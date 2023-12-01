@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:38:59 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/29 16:16:29 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/12/01 18:59:36 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,15 @@ void	rev_rotate_both(t_node **head_a, t_node **head_b);
 
 int		check_arg(int argc, char **argv);
 int		stack_is_sorted(t_node *head);
+int		countwords(char *str, char c);
+char	**divide_arg(char **argv, int *argc);
+void	do_checks(int *argc, char ***argv, int *f);
+void	free_argv(char ***argv, int argc, int f);
+void	destroy_list(t_node **head_a);
 
 void	small_sort(t_node **head_a, t_node **head_b, int num);
 void	three_sort(t_node **head_a);
 void	big_sort(t_node **head_a, t_node **head_b);
-void	destroy_list(t_node **head_a);
 
 void	insert_into_b(int movements, int f, t_node **head_a, t_node **head_b);
 void	move_cheaper(t_node **head_a, t_node *cheaper);
