@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 18:57:20 by raalonso          #+#    #+#             */
-/*   Updated: 2023/12/01 19:00:28 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/12/03 22:16:32 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	do_checks(int *argc, char ***argv, int *f)
 		*argv = divide_arg(*argv, &*argc);
 		*f = 1;
 	}
-	if (check_arg(*argc, *argv) == 1)
+	if (*argc == 1 || check_arg(*argc, *argv) == 1)
 	{
 		ft_printf("Error\n");
 		exit(1);

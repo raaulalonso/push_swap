@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 21:39:02 by raalonso          #+#    #+#             */
-/*   Updated: 2023/12/01 18:58:57 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/12/03 22:39:53 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,11 @@ void	destroy_list(t_node **head_a)
 	exit(0);
 }
 
+void	leaks(void)
+{
+	system("leaks push_swap");
+}
+
 int	main(int argc, char **argv)
 {
 	t_node	*head_a;
@@ -68,6 +73,7 @@ int	main(int argc, char **argv)
 	int		f;
 
 	f = 0;
+	atexit(leaks);
 	do_checks(&argc, &argv, &f);
 	head_a = create_list(argc, argv);
 	free_argv(&argv, argc, f);

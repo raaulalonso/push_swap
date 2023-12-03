@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 20:26:20 by raalonso          #+#    #+#             */
-/*   Updated: 2023/11/16 21:23:02 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/12/03 21:53:39 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,7 @@ void	five_sort_loop(t_node **head_a, t_node **head_b, int min)
 {
 	t_node	*current;
 	int		movements;
-	int		f;
 
-	f = 0;
 	movements = movements_for_five(&*head_a, &*head_b, min);
 	if (movements == -1)
 	{
@@ -72,12 +70,10 @@ void	five_sort_loop(t_node **head_a, t_node **head_b, int min)
 void	five_sort(t_node **head_a, t_node **head_b)
 {
 	int	i;
-	int	movements;
 	int	min;
 	int	lst_size;
 
 	i = 0;
-	movements = 0;
 	while (ft_lstsize(*head_a) > 3)
 		push(&*head_a, &*head_b, 2);
 	three_sort(&*head_a);
