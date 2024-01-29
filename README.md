@@ -1,10 +1,10 @@
 # push_swap
 
- [![Intro](https://img.shields.io/badge/Cursus-Push_Swap-success?style=for-the-badge&logo=42)](https://github.com/Apeslx/push_swap)
+ [![Intro](https://img.shields.io/badge/Cursus-Push_Swap-success?style=for-the-badge&logo=42)](https://github.com/raaulalonso/push_swap)
  
- [![Stars](https://img.shields.io/github/stars/Apeslx/push_swap?color=ffff00&label=Stars&logo=Stars&style=?style=flat)](https://github.com/Apeslx/push_swap)
- [![Size](https://img.shields.io/github/repo-size/Apeslx/push_swap?color=blue&label=Size&logo=Size&style=?style=flat)](https://github.com/Apeslx/push_swap)
- [![Activity](https://img.shields.io/github/last-commit/Apeslx/push_swap?color=red&label=Last%20Commit&style=flat)](https://github.com/Apeslx/push_swap)
+ [![Stars](https://img.shields.io/github/stars/raaulalonso/push_swap?color=ffff00&label=Stars&logo=Stars&style=?style=flat)](https://github.com/raaulalonso/push_swap)
+ [![Size](https://img.shields.io/github/repo-size/raaulalonso/push_swap?color=blue&label=Size&logo=Size&style=?style=flat)](https://github.com/raaulalonso/push_swap)
+ [![Activity](https://img.shields.io/github/last-commit/raaulalonso/push_swap?color=red&label=Last%20Commit&style=flat)](https://github.com/raaulalonso/push_swap)
  
 This project focuses on algorithmics. I've developed an algorithm capable of sorting, from smallest to bigest, an undefined number of unique values. To achieve this, it utilizes two stacks and a specific set of instructions outlined below. Additionally, a visualizer is included to illustrate the sorting process for better comprehension.
 
@@ -28,7 +28,7 @@ For the visualizer:
 1. Clone the push_swap repository to your local machine:
 
    ```shell
-   git clone https://github.com/Apeslx/push_swap.git push_swap
+   git clone https://github.com/raaulalonso/push_swap.git push_swap
 2. Change your current working directory to the project folder:
    
    ```shell
@@ -91,4 +91,4 @@ The algorithm only uses the following instructions when sorting:
 
 ## Screenshots
 
-![Demo GIF](https://github.com/Apeslx/push_swap/blob/main/screenshots/ScreenRecording.gif)
+![Demo GIF](https://github.com/raaulalonso/push_swap/blob/main/screenshots/ScreenRecording.gif)
